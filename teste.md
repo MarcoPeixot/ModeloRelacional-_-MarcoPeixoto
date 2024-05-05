@@ -9,6 +9,12 @@ Esta é a representação visual da estrutura relacional do projeto Abandono Zer
 ### users
 - **Descrição**: Armazena informações sobre os usuários e se relaciona com as outras entidades.
 - **Chave Primária**: id
+- **Relacionamentos**:
+  - **general_forms (1:1)**: Cada usuário pode ter apenas um formulário geral.
+  - **have_forms (1:N)**: Cada usuário pode ter vários formulários de cães que já possui.
+  - **has_forms (1:N)**: Cada usuário pode ter vários formulários de cães que já teve.
+  - **want_forms (1:N)**: Cada usuário pode ter vários formulários de cães que deseja adotar.
+  - **null_forms (1:N)**: Cada usuário pode ter vários formulários de cães que nunca conviveu ou não tem vontade de ter.
 - **Atributos**:
     - **id**: Chave primária, identificador único.
     - **name**: Nome do usuário.
@@ -34,7 +40,9 @@ Esta é a representação visual da estrutura relacional do projeto Abandono Zer
 - **Descrição**: Armazena detalhes sobre o cão mais recente que o usuário possui.
 - **Chave Primária**: id
 - **Chave Estrangeira**: id_users referenciando users.id.
-
+- **Relacionamentos**:
+  - **user_forms (1:1)**: Essa entidade pode ter apenas um user_forms.
+  - **dog_forms_have (1:1)**: Essa entidade pode ter apenas um dog_forms_have mas no futuro será 1:N.
 - **Atributos**:
     - **id**: Chave primária, identificador único.
     - **time_with_dog**: Tempo que o usuário passa com o cão.
@@ -83,7 +91,9 @@ Esta é a representação visual da estrutura relacional do projeto Abandono Zer
 - **Descrição**: Armazena informações do usuário que quer ter um cão no futuro.
 - **Chave Primária**: id
 - **Chave Estrangeira**: id_users referenciando users.id.
-
+- **Relacionamentos**:
+  - **user_forms (1:1)**: Essa entidade pode ter apenas um user_forms.
+  - **dog_forms_what (1:1)**: Essa entidade pode ter apenas um dog_forms_what mas no futuro será 1:N.
 - **Atributos**:
     - **id**: Chave primária, identificador único.
     - **live_with_dog**: Por que o usuário gostaria de conviver com um cão.
@@ -104,7 +114,9 @@ Esta é a representação visual da estrutura relacional do projeto Abandono Zer
 ### user_forms
 - **Descrição**: Entidade específica relacionada tanto com a entidade have_forms quanto com a want_forms para salvar o contato do usuário para futuras pesquisas.
 - **Observação:** Essa entidade só vai receber uma foreign key, vai depender da escolha do usuário na hora do preenchimento do formulário.
-- **Chave Estrangeira**: id_users referenciando users.id.
+- **Chaves Estrangeiras**:
+  - id_have_forms referenciando have_forms.id.
+  - id_want_forms referenciando want_forms.id.
  
 - **Atributos**:
     - **id**: Chave primária, identificador único.
@@ -140,61 +152,20 @@ Esta é a representação visual da estrutura relacional do projeto Abandono Zer
 
 ## Relacionamentos
 
-Os relacionamentos entre as entidades são fundamentais para entender como os dados são interligados e como as operações de CRUD (Create, Read, Update, Delete) afetam essas entidades. Aqui estão os relacionamentos detalhados entre as entidades:
+Os relacionamentos entre as entidades são fundamentais para entender como os dados estão organizados e como eles se conectam. Vamos detalhar cada um deles:
 
-- **users**:
-  - **general_forms**: Um usuário pode ter apenas um formulário geral (`1:1`).
-  - **have_forms**: Um usuário pode ter vários formulários de cães que já possui (`1:N`).
-  - **has_forms**: Um usuário pode ter vários formulários de cães que já teve (`1:N`).
-  - **want_forms**: Um usuário pode ter vários formulários de cães que deseja adotar (`1:N`).
-  - **null_forms**: Um usuário pode ter vários formulários de cães que nunca conviveu ou não tem vontade de ter (`1:N`).
-  - **user_forms**: Um usuário pode ter apenas um formulário específico de contatos (`1:1`).
-
-- **general_forms**:
-  - Relacionado diretamente com `users` através da chave estrangeira `id_users`.
-
-- **have_forms**:
-  - Relacionado diretamente com `users` através da chave estrangeira `id_users`.
-  - Relacionado com `user_forms` através da chave estrangeira `id_have_forms`.
-  - Relacionado com `dog_forms_have` através da chave estrangeira `id_have_forms`.
-
-- **had_forms**:
-  - Relacionado diretamente com `users` através da chave estrangeira `id_users`.
-
-- **want_forms**:
-  - Relacionado diretamente com `users` através da chave estrangeira `id_users`.
-  - Relacionado com `user_forms` através da chave estrangeira `id_want_forms`.
-  - Relacionado com `dog_forms_want` através da chave estrangeira `id_want_forms`.
-
-- **null_forms**:
-  - Relacionado diretamente com `users` através da chave estrangeira `id_users`.
-
-- **user_forms**:
-  - Relacionado diretamente com `users` através da chave estrangeira `id_users`.
-
-- **dog_forms_have**:
-  - Relacionado com `have_forms` através da chave estrangeira `id_have_forms`.
-
-- **dog_forms_want**:
-  - Relacionado com `want_forms` através da chave estrangeira `id_want_forms`.
+- **users e general_forms**: A relação 1:1 indica que cada usuário tem um único formulário geral associado. Isso é útil para armazenar informações gerais sobre o usuário, como idade, gênero e outros dados demográficos.
+- **users e have_forms**: A relação 1:N sugere que um usuário pode ter vários "formulários" associados, que neste contexto, podem ser entendidos como registros de cães que o usuário possuiu anteriormente. Cada registro de cão é único e pode ser associado a um único usuário.
+- **users e want_forms**: Similar à relação anterior, mas aqui, os "formulários" representam os cães que o usuário expressou interesse em adotar. Novamente, um usuário pode expressar interesse em vários cães, mas cada registro de interesse é único.
 
 ## Regras de Negócio
 
-As regras de negócio são diretrizes que garantem a integridade dos dados e a lógica de negócios do sistema. Algumas regras de negócio para o projeto Abandono Zero incluem:
-
-- **Validação de Dados**: Todos os campos obrigatórios devem ser preenchidos antes de um usuário poder submeter um formulário.
-- **Consistência de Informações**: As informações fornecidas pelos usuários devem ser consistentes entre os diferentes formulários. Por exemplo, o nome do cão deve ser o mesmo em todos os formulários relacionados a esse cão.
-- **Restrições de Edição**: Uma vez que um usuário submete um formulário, ele não pode editar as informações que já foram salvas, exceto em casos específicos autorizados pela administração.
-- **Política de Privacidade**: As informações pessoais dos usuários são protegidas e só podem ser acessadas por funcionários autorizados.
-- **Regra de unicidade**: Todos os campos dos formulários devem ser preenchidos pelo usuário.
-- **Regra de atualização**: As informações dos usuários do formulário geral podem ser atualizadas a qualquer momento.
+Defina quaisquer regras de negócio específicas que influenciam a estrutura e as relações do banco de dados.
 
 ## Diagrama
 
 ![Diagrama](./assets/modelo_relacional.png)
 
-Este diagrama simplificado ilustra os relacionamentos entre as entidades do modelo relacional. Cada entidade é representada por um retângulo, e os relacionamentos são indicados por linhas conectando as entidades.
-
 ## Conclusão
 
-Com essa modelagem de banco de dados atende às necessidades do sistema do projeto Abandono Zero, permitindo o gerenciamento eficiente das informações dos usuários e suas respostas nos formulários. A modelagem apresenta as entidades, seus atributos e os relacionamentos entre elas, proporcionando uma visão clara e organizada do banco de dados. As regras de negócio garantem a integridade e a consistência dos dados.
+O modelo de banco de dados atende às necessidades do sistema de adoção de cães, permitindo o gerenciamento eficiente das informações dos
