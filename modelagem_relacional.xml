@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
-<!-- Active URL: http://10.150.4.54:8080/ -->
+<!-- Active URL: https://sql.toad.cz/ -->
 <sql>
 <datatypes db="mysql">
 	<group label="Numeric" color="rgb(238,238,170)">
@@ -37,7 +37,7 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="787" y="396" name="users">
+</datatypes><table x="770" y="469" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -52,7 +52,7 @@
 </key>
 <comment>tabela de usuarios da arquitetura tutores</comment>
 </table>
-<table x="506" y="9" name="general_forms">
+<table x="454" y="0" name="general_forms">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -92,7 +92,7 @@
 </key>
 <comment>Tabela de formulario geral da arquitetura formularios</comment>
 </table>
-<table x="803" y="97" name="user_forms">
+<table x="762" y="203" name="user_forms">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -120,7 +120,7 @@
 </key>
 <comment>tabela para salvar os dados do usuario na arquitetura formularios</comment>
 </table>
-<table x="1057" y="15" name="have_forms">
+<table x="1007" y="16" name="have_forms">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -181,7 +181,7 @@
 </key>
 <comment>Tabela de quem tem cao da arquitetura formularios</comment>
 </table>
-<table x="1337" y="165" name="dog_forms_have">
+<table x="1303" y="164" name="dog_forms_have">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -206,7 +206,7 @@
 </key>
 <comment>tabela para preencher dados do cachorro na arquitetura formularios</comment>
 </table>
-<table x="507" y="315" name="had-forms">
+<table x="449" y="301" name="had_forms">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -273,7 +273,7 @@
 </key>
 <comment>Tabela de quem teve cao da arquitetura formularios</comment>
 </table>
-<table x="1031" y="560" name="want_forms">
+<table x="998" y="499" name="want_forms">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -307,7 +307,7 @@
 </key>
 <comment>Tabela de quem quer ter cao da arquitetura formularios</comment>
 </table>
-<table x="779" y="670" name="null_forms">
+<table x="744" y="658" name="null_forms">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -323,7 +323,7 @@
 </key>
 <comment>Tabela de quem nao quer ter cao da arquitetura formularios</comment>
 </table>
-<table x="1345.4375009536743" y="569" name="dog_forms_want">
+<table x="1301" y="502" name="dog_forms_want">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
