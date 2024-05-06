@@ -10,133 +10,132 @@ Esta é a representação visual da estrutura relacional do projeto Abandono Zer
 - **Descrição**: Armazena informações sobre os usuários e se relaciona com as outras entidades.
 - **Chave Primária**: id
 - **Atributos**:
-    - **id**: Chave primária, identificador único.
-    - **name**: Nome do usuário.
-    - **email**: Email do usuário.
+    - **id**: `INTEGER` (Chave primária, identificador único)
+    - **name**: `VARCHAR(50)` (Nome do usuário)
+    - **email**: `VARCHAR(50)` (Email do usuário)
 
 ### general_forms
 - **Descrição**: Armazena detalhes gerais sobre o usuário, incluindo informações demográficas e socioeconômicas.
 - **Chave Primária**: id
 - **Chave Estrangeira**: id_users referenciando users.id.
 - **Atributos**:
-    - **id**: Chave primária, identificador único.
-    - **age**: Idade do usuário.
-    - **gender**: Gênero do usuário.
-    - **education**: Escolaridade do usuário.
-    - **type_of_housing**: Tipo de moradia do usuário.
-    - **family_constitution**: Constituição familiar (quem reside na mesma casa).
-    - **income**: Renda familiar mensal.
-    - **live_in_the_house**: Quantidade de pessoas que moram na casa.
-    - **address**: Endereço do usuário.
-    - **choice_of_form**: Escolha de qual formulário o usuário vai responder.
+    - **id**: `INTEGER` (Chave primária, identificador único)
+    - **age**: `INTEGER` (Idade do usuário)
+    - **gender**: `VARCHAR(10)` (Gênero do usuário)
+    - **education**: `VARCHAR(50)` (Escolaridade do usuário)
+    - **type_of_housing**: `VARCHAR(50)` (Tipo de moradia do usuário)
+    - **family_constitution**: `VARCHAR(100)` (Constituição familiar)
+    - **income**: `DECIMAL(10,2)` (Renda familiar mensal)
+    - **live_in_the_house**: `INTEGER` (Quantidade de pessoas que moram na casa)
+    - **address**: `VARCHAR(255)` (Endereço do usuário)
+    - **choice_of_form**: `VARCHAR(50)` (Escolha de qual formulário o usuário vai responder)
+
 
 ### have_forms
 - **Descrição**: Armazena detalhes sobre o cão mais recente que o usuário possui.
-- **Chave Primária**: id
-- **Chave Estrangeira**: id_users referenciando users.id.
-
+- **Chave Primária**: `id`
+- **Chave Estrangeira**: `id_users` referenciando `users.id`.
 - **Atributos**:
-    - **id**: Chave primária, identificador único.
-    - **time_with_dog**: Tempo que o usuário passa com o cão.
-    - **first_dog**: Informações sobre o primeiro cão do usuário.
-    - **other_pets**: Informações sobre outros pets do usuário.
-    - **dogs_age**: Idade do cão.
-    - **breed**: Raça do cão.
-    - **where_get**: De onde o usuário obteve o cão.
-    - **paid_to_acquire**: Se o usuário pagou pelo cão.
-    - **age_reached**: Idade em que o cão atingiu certos marcos.
-    - **dog_personality**: Personalidade do cão.
-    - **why_do_have**: Por que o usuário tem o cão.
-    - **others**: Outras informações relevantes.
-    - **characteristics**: Características físicas do cão.
-    - **decision**: Decisões tomadas sobre o cão.
-    - **couldnt_keep**: Se o usuário não conseguiu manter o cão.
-    - **how_vet**: Como o cão foi tratado veterinariamente.
-    - **say_about**: O que o usuário diz sobre o cão.
+    - **id**: `INTEGER` (Chave primária, identificador único)
+    - **time_with_dog**: `INTEGER` (Tempo que o usuário passa com o cão)
+    - **first_dog**: `TEXT` (Informações sobre o primeiro cão do usuário)
+    - **other_pets**: `TEXT` (Informações sobre outros pets do usuário)
+    - **dogs_age**: `INTEGER` (Idade do cão)
+    - **breed**: `VARCHAR(50)` (Raça do cão)
+    - **where_get**: `VARCHAR(100)` (De onde o usuário obteve o cão)
+    - **paid_to_acquire**: `BOOLEAN` (Se o usuário pagou pelo cão)
+    - **age_reached**: `INTEGER` (Idade em que o cão atingiu certos marcos)
+    - **dog_personality**: `TEXT` (Personalidade do cão)
+    - **why_do_have**: `TEXT` (Por que o usuário tem o cão)
+    - **others**: `TEXT` (Outras informações relevantes)
+    - **characteristics**: `TEXT` (Características físicas do cão)
+    - **decision**: `TEXT` (Decisões tomadas sobre o cão)
+    - **couldnt_keep**: `BOOLEAN` (Se o usuário não conseguiu manter o cão)
+    - **how_vet**: `TEXT` (Como o cão foi tratado veterinariamente)
+    - **say_about**: `TEXT` (O que o usuário diz sobre o cão)
 
 ### had_forms
 - **Descrição**: Armazena detalhes sobre o cão mais recente que o usuário já teve ou conviveu.
-- **Chave Primária**: id
-- **Chave Estrangeira**: id_users referenciando users.id.
+- **Chave Primária**: `id`
+- **Chave Estrangeira**: `id_users` referenciando `users.id`.
 - **Atributos**:
-    - **id**: Chave primária, identificador único.
-    - **dogs_name**: Nome do cão.
-    - **dogs_personality**: Personalidade do cão.
-    - **time_with_you**: Tempo que o usuário passou com o cão.
-    - **first_dog**: Informações sobre o primeiro cão do usuário.
-    - **other_pets**: Informações sobre outros pets do usuário.
-    - **pet_age**: Idade do cão.
-    - **castrated**: Se o cão foi castrado.
-    - **breed**: Raça do cão.
-    - **where_came_from**: De onde o cão veio.
-    - **pet_price**: Preço pago pelo cão.
-    - **why**: Por que o usuário teve o cão.
-    - **characteristics**: Características físicas do cão.
-    - **name_decision**: Decisão sobre o nome do cão.
-    - **most_like**: Coisas que o usuário mais gosta do cão.
-    - **dont_like**: Coisas que o usuário não gosta do cão.
-    - **veterinary**: Informações sobre tratamento veterinário.
-    - **stopped_living**: Se o cão parou de viver.
-    - **belonged_to_you**: Se o cão pertencia ao usuário.
+    - **id**: `INTEGER` (Chave primária, identificador único)
+    - **dogs_name**: `VARCHAR(50)` (Nome do cão)
+    - **dogs_personality**: `TEXT` (Personalidade do cão)
+    - **time_with_you**: `INTEGER` (Tempo que o usuário passou com o cão)
+    - **first_dog**: `TEXT` (Informações sobre o primeiro cão do usuário)
+    - **other_pets**: `TEXT` (Informações sobre outros pets do usuário)
+    - **pet_age**: `INTEGER` (Idade do cão)
+    - **castrated**: `BOOLEAN` (Se o cão foi castrado)
+    - **breed**: `VARCHAR(50)` (Raça do cão)
+    - **where_came_from**: `VARCHAR(100)` (De onde o cão veio)
+    - **pet_price**: `DECIMAL(10,2)` (Preço pago pelo cão)
+    - **why**: `TEXT` (Por que o usuário teve o cão)
+    - **characteristics**: `TEXT` (Características físicas do cão)
+    - **name_decision**: `TEXT` (Decisão sobre o nome do cão)
+    - **most_like**: `TEXT` (Coisas que o usuário mais gosta do cão)
+    - **dont_like**: `TEXT` (Coisas que o usuário não gosta do cão)
+    - **veterinary**: `TEXT` (Informações sobre tratamento veterinário)
+    - **stopped_living**: `BOOLEAN` (Se o cão parou de viver)
+    - **belonged_to_you**: `BOOLEAN` (Se o cão pertencia ao usuário)
 
 ### want_forms
 - **Descrição**: Armazena informações do usuário que quer ter um cão no futuro.
-- **Chave Primária**: id
-- **Chave Estrangeira**: id_users referenciando users.id.
-
+- **Chave Primária**: `id`
+- **Chave Estrangeira**: `id_users` referenciando `users.id`.
 - **Atributos**:
-    - **id**: Chave primária, identificador único.
-    - **live_with_dog**: Por que o usuário gostaria de conviver com um cão.
-    - **nickname**: Possível nome do cão.
-    - **pretend**: Se o usuário pretende comprar ou adotar.
-    - **include**: Quando o usuário planeja incluir o cão em sua casa.
-    - **what_personality**: Personalidade que o usuário quer no cão.
-    - **research_expenses**: Pesquisa sobre despesas mensais com o pet.
+    - **id**: `INTEGER` (Chave primária, identificador único)
+    - **live_with_dog**: `TEXT` (Por que o usuário gostaria de conviver com um cão)
+    - **nickname**: `VARCHAR(50)` (Possível nome do cão)
+    - **pretend**: `BOOLEAN` (Se o usuário pretende comprar ou adotar)
+    - **include**: `DATE` (Quando o usuário planeja incluir o cão em sua casa)
+    - **what_personality**: `TEXT` (Personalidade que o usuário quer no cão)
+    - **research_expenses**: `DECIMAL(10,2)` (Pesquisa sobre despesas mensais com o pet)
 
 ### null_forms
 - **Descrição**: Armazena dados do usuário que nunca conviveu ou teve cães e não tem vontade de ter.
-- **Chave Primária**: id
-- **Chave Estrangeira**: id_users referenciando users.id.
+- **Chave Primária**: `id`
+- **Chave Estrangeira**: `id_users` referenciando `users.id`.
 - **Atributos**:
-    - **id**: Chave primária, identificador único.
-    - **dont_want**: Por que o usuário não quer ter cães.
+    - **id**: `INTEGER` (Chave primária, identificador único)
+    - **dont_want**: `TEXT` (Por que o usuário não quer ter cães)
 
 ### user_forms
 - **Descrição**: Entidade específica relacionada tanto com a entidade have_forms quanto com a want_forms para salvar o contato do usuário para futuras pesquisas.
 - **Observação:** Essa entidade só vai receber uma foreign key, vai depender da escolha do usuário na hora do preenchimento do formulário.
-- **Chave Estrangeira**: id_users referenciando users.id.
- 
+- **Chave Estrangeira**: `id_users` referenciando `users.id`.
 - **Atributos**:
-    - **id**: Chave primária, identificador único.
-    - **first_name**: Primeiro nome do usuário.
-    - **last_name**: Sobrenome do usuário.
-    - **social_name**: Nome social do usuário.
-    - **cellphone**: Celular do usuário para futuros contatos.
-    - **email**: E-mail do usuário para futuros contatos.
+    - **id**: `INTEGER` (Chave primária, identificador único)
+    - **first_name**: `VARCHAR(50)` (Primeiro nome do usuário)
+    - **last_name**: `VARCHAR(50)` (Sobrenome do usuário)
+    - **social_name**: `VARCHAR(50)` (Nome social do usuário)
+    - **cellphone**: `VARCHAR(15)` (Celular do usuário para futuros contatos)
+    - **email**: `VARCHAR(50)` (E-mail do usuário para futuros contatos)
 
 ### dog_forms_have
 - **Descrição**: Entidade específica relacionada com a entidade have_forms para salvar informações extras do cão.
 - **Chaves Estrangeiras**:
-  - id_have_forms referenciando have_forms.id.
+  - **id_have_forms** referenciando `have_forms.id`.
 - **Atributos**:
-    - **id**: Chave primária, identificador único.
-    - **dog_name**: Nome do cão.
-    - **gender**: Gênero do cão.
-    - **castrated**: Se o cão é castrado.
-    - **belongs_to_you**: Se o cão pertence ao usuário.
+    - **id**: `INTEGER` (Chave primária, identificador único)
+    - **dog_name**: `VARCHAR(50)` (Nome do cão)
+    - **gender**: `VARCHAR(10)` (Gênero do cão)
+    - **castrated**: `BOOLEAN` (Se o cão é castrado)
+    - **belongs_to_you**: `BOOLEAN` (Se o cão pertence ao usuário)
 
 ### dog_forms_want
 - **Descrição**: Entidade específica relacionada com a entidade want_forms para salvar informações extras do cão.
 - **Chaves Estrangeiras**:
-  - id_want_forms referenciando want_forms.id.
+  - **id_want** referenciando `want_forms.id`.
 - **Atributos**:
-    - **id**: Chave primária, identificador único.
-    - **dog_size**: Tamanho do cão.
-    - **coat**: Tipo da pelagem do cão.
-    - **color_preference**: Cor preferida do cão.
-    - **gender**: Gênero do cão.
-    - **age**: Idade desejada do cão.
-    - **breed**: Raça desejada do cão.
+    - **dog_size**: `VARCHAR(20)` (Tamanho do cão)
+    - **coat**: `VARCHAR(50)` (Tipo da pelagem do cão)
+    - **color_preference**: `VARCHAR(50)` (Cor preferida do cão)
+    - **gender**: `VARCHAR(10)` (Gênero do cão)
+    - **age**: `INTEGER` (Idade do cão)
+    - **breed**: `VARCHAR(50)` (Raça do cão)
+
+
 
 ## Relacionamentos
 
@@ -178,16 +177,35 @@ Os relacionamentos entre as entidades são fundamentais para entender como os da
 - **dog_forms_want**:
   - Relacionado com `want_forms` através da chave estrangeira `id_want_forms`.
 
+
 ## Regras de Negócio
 
-As regras de negócio são diretrizes que garantem a integridade dos dados e a lógica de negócios do sistema. Algumas regras de negócio para o projeto Abandono Zero incluem:
+As regras de negócio são diretrizes que garantem a integridade dos dados e a lógica de negócios do sistema. As regras de negócio para o projeto Abandono Zero são:
 
-- **Validação de Dados**: Todos os campos obrigatórios devem ser preenchidos antes de um usuário poder submeter um formulário.
-- **Consistência de Informações**: As informações fornecidas pelos usuários devem ser consistentes entre os diferentes formulários. Por exemplo, o nome do cão deve ser o mesmo em todos os formulários relacionados a esse cão.
-- **Restrições de Edição**: Uma vez que um usuário submete um formulário, ele não pode editar as informações que já foram salvas, exceto em casos específicos autorizados pela administração.
-- **Política de Privacidade**: As informações pessoais dos usuários são protegidas e só podem ser acessadas por funcionários autorizados.
-- **Regra de unicidade**: Todos os campos dos formulários devem ser preenchidos pelo usuário.
-- **Regra de atualização**: As informações dos usuários do formulário geral podem ser atualizadas a qualquer momento.
+### 1. Validação de Dados
+
+Todos os campos obrigatórios devem ser preenchidos antes de um usuário poder submeter um formulário.
+
+### 2. Consistência de Informações
+
+As informações fornecidas pelos usuários devem ser consistentes entre os diferentes formulários. Por exemplo, o nome do cão deve ser o mesmo em todos os formulários relacionados a esse cão.
+
+### 3. Restrições de Edição
+
+Uma vez que um usuário submete um formulário, ele não pode editar as informações que já foram salvas, exceto em casos específicos autorizados pela administração.
+
+### 4. Política de Privacidade
+
+As informações pessoais dos usuários são protegidas e só podem ser acessadas por funcionários autorizados.
+
+### 5. Regra de Unicidade
+
+Todos os campos dos formulários devem ser preenchidos pelo usuário.
+
+### 6. Regra de Atualização
+
+As informações dos usuários do formulário geral podem ser atualizadas a qualquer momento.
+
 
 ## Diagrama
 
