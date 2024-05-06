@@ -17,7 +17,7 @@ Esta é a representação visual da estrutura relacional do projeto Abandono Zer
 ### general_forms
 - **Descrição**: Armazena detalhes gerais sobre o usuário, incluindo informações demográficas e socioeconômicas.
 - **Chave Primária**: id
-- **Chave Estrangeira**: id_users referenciando users.id.
+- **Chave Estrangeira**: `id_users` referenciando `users.id` `(UNIQUE)`.
 - **Atributos**:
     - **id**: `INTEGER` (Chave primária, identificador único)
     - **age**: `INTEGER` (Idade do usuário)
@@ -103,7 +103,7 @@ Esta é a representação visual da estrutura relacional do projeto Abandono Zer
 ### user_forms
 - **Descrição**: Entidade específica relacionada tanto com a entidade have_forms quanto com a want_forms para salvar o contato do usuário para futuras pesquisas.
 - **Observação:** Essa entidade só vai receber uma foreign key, vai depender da escolha do usuário na hora do preenchimento do formulário.
-- **Chave Estrangeira**: `id_users` referenciando `users.id`.
+- **Chave Estrangeira**: `id_users` referenciando `users.id` `(UNIQUE)`.
 - **Atributos**:
     - **id**: `INTEGER` (Chave primária, identificador único)
     - **first_name**: `VARCHAR(50)` (Primeiro nome do usuário)
@@ -142,12 +142,12 @@ Esta é a representação visual da estrutura relacional do projeto Abandono Zer
 Os relacionamentos entre as entidades são fundamentais para entender como os dados são interligados e como as operações de CRUD (Create, Read, Update, Delete) afetam essas entidades. Aqui estão os relacionamentos detalhados entre as entidades:
 
 - **users**:
-  - **general_forms**: Um usuário pode ter apenas um formulário geral (`1:1`).
+  - **general_forms**: Um usuário pode ter apenas um formulário geral (`1:1`). A chave estrangeira `id_users` na tabela general_forms agora é única para refletir essa relação.
   - **have_forms**: Um usuário pode ter vários formulários de cães que já possui (`1:N`).
   - **has_forms**: Um usuário pode ter vários formulários de cães que já teve (`1:N`).
   - **want_forms**: Um usuário pode ter vários formulários de cães que deseja adotar (`1:N`).
   - **null_forms**: Um usuário pode ter vários formulários de cães que nunca conviveu ou não tem vontade de ter (`1:N`).
-  - **user_forms**: Um usuário pode ter apenas um formulário específico de contatos (`1:1`).
+  - **user_forms**: Um usuário pode ter apenas um formulário específico de contatos (`1:1`). A chave estrangeira id_users na tabela `user_forms` agora é única para refletir essa relação.
 
 - **general_forms**:
   - Relacionado diretamente com `users` através da chave estrangeira `id_users`.
