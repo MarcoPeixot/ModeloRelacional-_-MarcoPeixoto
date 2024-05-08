@@ -1,8 +1,12 @@
 # Documentação do Modelo Relacional - Projeto Abandono Zero
 
-## Descrição Geral
+**Projeto:** Abandono Zero
 
-Esta é a representação visual da estrutura relacional do projeto Abandono Zero, cujo objetivo é gerenciar eficazmente as informações dos usuários e suas respostas nos formulários. A modelagem apresenta as entidades, seus atributos e os relacionamentos entre elas, proporcionando uma visão clara e organizada do banco de dados.
+**Data:** 08/05/2024
+
+**Autor:** Marco Ruas Sales Peixoto
+
+**Objetivo:** Esta é a representação visual da estrutura relacional do projeto Abandono Zero, cujo objetivo é gerenciar eficazmente as informações dos usuários e suas respostas nos formulários. A modelagem apresenta as entidades, seus atributos e os relacionamentos entre elas, proporcionando uma visão clara e organizada do banco de dados.
 
 ## Entidades
 
