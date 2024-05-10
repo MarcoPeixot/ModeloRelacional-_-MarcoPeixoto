@@ -8,6 +8,12 @@
 
 **Objetivo:** Esta é a representação visual da estrutura relacional do projeto Abandono Zero, cujo objetivo é gerenciar eficazmente as informações dos usuários e suas respostas nos formulários. A modelagem apresenta as entidades, seus atributos e os relacionamentos entre elas, proporcionando uma visão clara e organizada do banco de dados.
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abaixo encontra-se os dois arquivos para baixar, sobre a modelagem relacional e a física:
+
+- [Modelagem Relacional](https://github.com/MarcoPeixot/ModeloRelacional-_-MarcoPeixoto/blob/main/modelagem_relacional.xml)
+- [Modelagem Física](https://github.com/MarcoPeixot/ModeloRelacional-_-MarcoPeixoto/blob/main/modelagem_fisica.sql)
+
+
 ## Entidades
 
 ### users
@@ -143,7 +149,7 @@
 
 ## Relacionamentos
 
-Os relacionamentos entre as entidades são fundamentais para entender como os dados são interligados e como as operações de CRUD (Create, Read, Update, Delete) afetam essas entidades. Aqui estão os relacionamentos detalhados entre as entidades:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Os relacionamentos entre as entidades são fundamentais para entender como os dados são interligados e como as operações de CRUD (Create, Read, Update, Delete) afetam essas entidades. Aqui estão os relacionamentos detalhados entre as entidades:
 
 - **users**:
   - **general_forms**: Um usuário pode ter apenas um formulário geral (`1:1`). A chave estrangeira `id_users` na tabela general_forms agora é única para refletir essa relação.
@@ -184,39 +190,39 @@ Os relacionamentos entre as entidades são fundamentais para entender como os da
 
 ## Regras de Negócio
 
-As regras de negócio são diretrizes que garantem a integridade dos dados e a lógica de negócios do sistema. As regras de negócio para o projeto Abandono Zero são:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As regras de negócio são diretrizes que garantem a integridade dos dados e a lógica de negócios do sistema. As regras de negócio para o projeto Abandono Zero são:
 
 ### 1. Validação de Dados
 
-Todos os campos obrigatórios devem ser preenchidos antes de um usuário poder submeter um formulário.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Todos os campos obrigatórios devem ser preenchidos antes de um usuário poder submeter um formulário.
 
 ### 2. Consistência de Informações
 
-As informações fornecidas pelos usuários devem ser consistentes entre os diferentes formulários. Por exemplo, o nome do cão deve ser o mesmo em todos os formulários relacionados a esse cão.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As informações fornecidas pelos usuários devem ser consistentes entre os diferentes formulários. Por exemplo, o nome do cão deve ser o mesmo em todos os formulários relacionados a esse cão.
 
 ### 3. Restrições de Edição
 
-Uma vez que um usuário submete um formulário, ele não pode editar as informações que já foram salvas, exceto em casos específicos autorizados pela administração.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uma vez que um usuário submete um formulário, ele não pode editar as informações que já foram salvas, exceto em casos específicos autorizados pela administração.
 
 ### 4. Política de Privacidade
 
-As informações pessoais dos usuários são protegidas e só podem ser acessadas por funcionários autorizados.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As informações pessoais dos usuários são protegidas e só podem ser acessadas por funcionários autorizados.
 
 ### 5. Regra de Unicidade
 
-Todos os campos dos formulários devem ser preenchidos pelo usuário.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Todos os campos dos formulários devem ser preenchidos pelo usuário.
 
 ### 6. Regra de Atualização
 
-As informações dos usuários do formulário geral podem ser atualizadas a qualquer momento.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As informações dos usuários do formulário geral podem ser atualizadas a qualquer momento.
 
 
 ## Diagrama
 
 ![Diagrama](./assets/modelo_relacional.png)
 
-Este diagrama simplificado ilustra os relacionamentos entre as entidades do modelo relacional. Cada entidade é representada por um retângulo, e os relacionamentos são indicados por linhas conectando as entidades.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Este diagrama simplificado ilustra os relacionamentos entre as entidades do modelo relacional. Cada entidade é representada por um retângulo, e os relacionamentos são indicados por linhas conectando as entidades.
 
 ## Conclusão
 
-Com essa modelagem de banco de dados atende às necessidades do sistema do projeto Abandono Zero, permitindo o gerenciamento eficiente das informações dos usuários e suas respostas nos formulários. A modelagem apresenta as entidades, seus atributos e os relacionamentos entre elas, proporcionando uma visão clara e organizada do banco de dados. As regras de negócio garantem a integridade e a consistência dos dados.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Com essa modelagem de banco de dados atende às necessidades do sistema do projeto Abandono Zero, permitindo o gerenciamento eficiente das informações dos usuários e suas respostas nos formulários. A modelagem apresenta as entidades, seus atributos e os relacionamentos entre elas, proporcionando uma visão clara e organizada do banco de dados. As regras de negócio garantem a integridade e a consistência dos dados.
